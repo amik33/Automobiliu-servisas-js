@@ -6,7 +6,7 @@
 
 # Autoservice
 
-_website design project_
+_website design project CRUD_
 
 <br>
 
@@ -21,12 +21,6 @@ Design: [Astronautas](https://dribbble.com/shots/5964475-404-Lost-in-Space)
 
 -   Github pages
 -   README / [markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
--   favicon
--   fixed-width content
--   `<header>`, `<footer>`
--   FontAwesome font/icons
--   HTML entities
--   pseudo-elements
 
 ## 🧰 Getting Started
 
@@ -50,7 +44,7 @@ Would like to run this project locally? Open terminal and follow these steps:
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/amik33/44-grupe.git
+    git clone https://github.com/amik33/Automobiliu-servisas-js.git
     ```
 2. Install NPM packages
     ```sh
