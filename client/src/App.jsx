@@ -7,6 +7,7 @@ import { Register } from './pages/Register';
 import { Login } from './pages/Login';
 import { NoPage } from './pages/NoPage';
 import { List } from './pages/List';
+import { Dashboard } from './pages/dashboard/Dashboard';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
             <Route path='/login' element={<Login />}></Route>
           </Route>
           <Route Component={UserLayout}>
-        
+            <Route path='/dashboard' element={<Dashboard />}></Route>
           </Route>
           <Route Component={PublicLayout}>
             <Route path='*' element={<NoPage />}></Route>
