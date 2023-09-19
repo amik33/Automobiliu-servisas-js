@@ -9,6 +9,9 @@ import { NoPage } from './pages/NoPage';
 import { List } from './pages/List';
 import { Dashboard } from './pages/dashboard/Dashboard';
 import { Users } from './pages/users/Users';
+import { Total } from './pages/total/Total';
+import { AdminNewTotal } from './pages/total/AdminNewTotal';
+import { AdminEditTotal } from './pages/total/AdminEditTotal';
 
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
           <Route Component={UserLayout}>
             <Route path='/dashboard' element={<Dashboard />}></Route>
             <Route path='/users' element={<Users />}></Route>
+            <Route path='/total' element={<Total />}></Route>
+            <Route path='/total/new' element={<AdminNewTotal />}></Route>
+            <Route path='/total/:total/edit' element={<AdminEditTotal />}></Route>
           </Route>
           <Route Component={PublicLayout}>
             <Route path='*' element={<NoPage />}></Route>

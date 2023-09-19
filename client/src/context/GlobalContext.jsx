@@ -9,6 +9,11 @@ export const initialContext = {
     updateFullname: () => { },
     email: '',
     updateEmail: () => { },
+    total: [],
+    addTotal: () => { },
+    deleteTotal: () => { },
+    changeTotal: () => { },
+    updateTotale: () => { },
 
 };
 
@@ -19,6 +24,7 @@ export const ContextWrapper = (props) => {
     const [role, setRole] = useState(initialContext.role);
     const [fullname, setFullname] = useState(initialContext.fullname);
     const [email, setEmail] = useState(initialContext.email);
+    const [total, setTotal] = useState(initialContext.total);
 
     useEffect(() => {
         fetch('http://localhost:3001/api/login', {
@@ -36,6 +42,23 @@ export const ContextWrapper = (props) => {
                     setRole(data.user.role);
                     setFullname(data.user.fullname);
                     setEmail(data.user.email);
+                }
+            })
+            .catch(console.error);
+    }, []);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/api/total', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+            },
+            credentials: 'include',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'ok' && data.list) {
+                    setTotal(data.list.map(t => t.title));
                 }
             })
             .catch(console.error);
@@ -61,6 +84,22 @@ export const ContextWrapper = (props) => {
         setEmail(email);
     }
 
+    function updateTotale(total) {
+        setTotal(total);
+    }
+
+    function addTotal(total) {
+        setTotal(pre => [...pre, total]);
+    }
+
+    function deleteTotal(total) {
+        setTotal(pre => pre.filter(title => title !== total));
+    }
+
+    function changeTotal(oldTotal, newTotal) {
+        setTotal(pre => pre.map(title => title === oldTotal ? newTotal : title));
+    }
+
     const value = {
         loginStatus,
         updateLoginStatus,
@@ -70,6 +109,12 @@ export const ContextWrapper = (props) => {
         updateFullname,
         email,
         updateEmail,
+        total,
+        addTotal,
+        deleteTotal,
+        changeTotal,
+        updateTotale,
+        
        
     };
 
